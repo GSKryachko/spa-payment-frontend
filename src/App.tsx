@@ -64,7 +64,7 @@ class RequestPayment extends Component {
         return (
             <div className="RequestPayment">
                 <p>Create document and upload it to site of your bank</p>
-                <form className="RequestPaymentForm" id="RequestPaymentForm">
+                <form className="RequestPaymentForm" id="RequestPaymentForm"  method="post" action="http://localhost:5000/payment_requests  ">
                     <span>ITN of receiver:</span> <input required type="text" name="ITN" pattern="(\d{10}|\d{12})"
                                                          placeholder="Individual taxpayer number"/><br/>
                     <span>RCBIC:</span><input required type="text" name="rcbic" pattern="\d{9}"/><br/>
@@ -89,7 +89,7 @@ class PayFromMyBank extends Component {
         return (
             <div className="PayFromMyBank">
                 <p>Create document and upload it to site of your bank</p>
-                <form className="PayFromMyBankForm" id="PayFromMyBankForm">
+                <form className="PayFromMyBankForm" id="PayFromMyBankForm" method="post" action="http://localhost:5000/get-file">
                     <span>From:</span> <input required type="text" name="from" pattern="(\d{10}|\d{12})"
                                               placeholder="Individual taxpayer number"/><br/>
                     <span>RCBIC:</span><input required type="text" name="rcbic" pattern="\d{9}"/><br/>
@@ -109,7 +109,7 @@ class PayFromAnyBank extends Component {
     render() {
         return (
             <div className="PayFromAnyBank">
-                <form className="PayFromAnyBankForm" id="PayFromAnyBankForm">
+                <form className="PayFromAnyBankForm" id="PayFromAnyBankForm" method="post" action="http://localhost:5000/payments">
                     <div className="CardData">
                         <span >Card number</span><input required type="text" name="card_number"
                                                                               pattern="\d{16}"/><br/>
@@ -119,7 +119,7 @@ class PayFromAnyBank extends Component {
                                                                 pattern="\d{3}"/><br/>
                     </div>
                     <div className="Comments">
-                        <span>Commentary: </span><input type="string" name="commentary" pattern=".{0:150}"/><br/>
+                        <span>Commentary: </span><input type="string" name="commentary" pattern="^[\d\w\s]{0,150}$"/><br/>
                         <span>Amount: </span><input required type="number" min="1000" max="75000" name="amount"/><br/>
                         <span>Email: </span><input required type="email" name="email"/><br/>
                     </div>
