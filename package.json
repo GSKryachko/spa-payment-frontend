@@ -1,5 +1,7 @@
 {
   "name": "frontend_without_babel",
+  "homepage": "./",
+  "main": "src/index.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
